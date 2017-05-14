@@ -1,0 +1,8 @@
+<h1>
+  {{title}}
+</h1>
+<ul>
+  <li *ngFor="let user of loadedUsers">
+    <span class="badge label-success">{{user.phone}}</span> {{user.bio}}
+  </li>
+</ul> 
