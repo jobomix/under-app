@@ -3,10 +3,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { UsersComponent } from './users.component';
 import { UsersService } from '../services/users.service';
 import { User } from '../model/user.class';
-import { IUsers } from '../services/iusers';
 
 
-class MockUsersService implements IUsers {
+class MockUsersService {
   getAllUsers(): User[] {
     return [
       new User('1234556678', 'Little biography'),
@@ -17,8 +16,7 @@ class MockUsersService implements IUsers {
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
-
-    let usersService = new MockUsersService()
+    const usersService = new MockUsersService();
     TestBed.configureTestingModule({
       declarations: [
         UsersComponent
@@ -47,7 +45,7 @@ describe('AppComponent', () => {
   }));
 
   it('should display a list of users located near by', async(() => {
-    // don't do anything yet 
+    // don't do anything yet
     const fixture = TestBed.createComponent(UsersComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
