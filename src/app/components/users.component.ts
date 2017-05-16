@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; 
+import { Component, OnInit, Injectable } from '@angular/core'; 
 import { User } from '../model/user.class';
 import { UsersService } from '../services/users.service';
 
@@ -6,16 +6,19 @@ import { UsersService } from '../services/users.service';
 @Component({
   selector: 'users',
   templateUrl: '../templates/users.component.html',
-  styleUrls: ['../templates/users.component.css'],
-  providers:[UsersService]
+  styleUrls: ['../templates/users.component.css']
 })
 
-export class UsersComponent {
+export class UsersComponent implements OnInit {
+ 
   title = 'app works well!';
   loadedUsers = [];
 
   constructor(private usersService: UsersService) {
-    this.loadedUsers = usersService.getAllUsers();
+  }
+
+  ngOnInit(): void {
+      this.loadedUsers = this.usersService.getAllUsers();
   }
 
 }

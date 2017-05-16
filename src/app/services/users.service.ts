@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from '../model/user.class';
+import {IUsers} from '../services/iusers';
 
 const users: User[] = [
   new User('+44 7882316130', 'Check if it works;'),
